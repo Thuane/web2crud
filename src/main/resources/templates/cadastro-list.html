@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lista de Cadastrados</title>
+<link 
+   rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/index">Eleição Síndico 2019</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="textoNavbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/exibirCadastro">Cadastrar Candidatos <span class="sr-only">(Página atual)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/listarCandidatos">Lista de Candidatos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Projeto dos Candidatos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">Emitir ficha dos candidatos</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+ <div>
+		<table class="table">
+			<tr>
+			    <th>Id</th>
+				<th>Nome</th>
+				<th>Idade</th>
+				<th>Sexo</th>
+				<th>Telefone</th>
+				<th>Email</th>
+				<th>Bloco</th>
+				<th>NumeroApartamento</th>
+			</tr>
+			<tr th:each="cand : ${lista}">
+			 <td th:text="${cand.id}"></td>
+            <td th:text="${cand.nome}"></td>
+			<td th:text="${cand.idade}"></td>
+			<td th:text="${cand.sexo}"></td>
+			<td th:text="${cand.telefone}"></td>
+			<td th:text="${cand.email}"></td>
+			<td th:text="${cand.bloco}"></td>
+			<td th:text="${cand.numeroApartamento}"></td>
+			<td><a th:href="@{/editarCandidato(id=${cand.id})}">Editar</a>&nbsp;&nbsp;
+				<a th:href="@{/removerCandidato(id=${cand.id})}">Remover</a></td>
+			</tr>
+		</table>
+		<a href="/index"><button type="submit" class="btn btn-secundary" >Voltar</button></a>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999¹xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Eleição :: Cadastro</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body>
+ 
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="/index">Eleição Síndico 2019</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#textoNavbar" aria-controls="textoNavbar"
+			aria-expanded="false" aria-label="Alterna navegação">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="textoNavbar">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link"
+					href="/exibirCadastro">Cadastrar Candidatos <span
+						class="sr-only">(Página atual)</span></a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="/listarCandidatos">Lista de Candidatos</a></li>
+				<li class="nav-item"><a class="nav-link" href="">Projeto
+						dos Candidatos</a></li>
+				<li class="nav-item"><a class="nav-link" href="">Emitir ficha dos candidatos</a></li>
+			</ul>
+		</div>
+	</nav>
+	
+	<div class="container col-sm-12 col-md-6 col-md-offset-2">
+		<form action="salvarCandidato" th:object="${candidatos}" method="post">
+			<input type="hidden" th:field="*{id}" id="id">
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="nome">Nome</label> <input type="text"
+						th:field="*{nome}" class="form-control" id="nome"
+						placeholder="Nome do candidato">
+						
+				</div>
+				<div class="form-group col-md-6">
+					<label for="idade">Idade</label> <input type="text"
+						th:field="*{idade}" class="form-control" id="idade"
+						placeholder="Idade do candidato">
+						
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="sexo">Sexo</label> <input type="text" th:field="*{sexo}"
+					class="form-control" id="sexo" placeholder="Sexo do candidato">
+			</div>
+			<div class="form-group">
+				<label for="telefone">Telefone</label> <input type="tel"
+					th:field="*{telefone}" class="form-control" id="telefone"
+					placeholder="Telefone do contato">
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label> <input type="email"
+					th:field="*{email}" class="form-control" id="email"
+					placeholder="Email do candidato">
+			</div>
+			<div class="form-group">
+				<label for="bloco">Bloco</label> <input type="text"
+					th:field="*{bloco}" class="form-control" id="bloco"
+					placeholder="Bloco do candidato">
+			</div>
+			<div class="form-group">
+				<label for="numeroApartamento">Numero do Apartamento</label> <input
+					type="number" th:field="*{numeroApartamento}" class="form-control"
+					id="numeroApartamento" placeholder="Numero do Apartamento">
+			</div>
+	<button type="submit" class="btn btn-secundary">Cadastrar</button>
+	</form>	
+	
+	
+</body>
+</html>
